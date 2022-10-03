@@ -21,6 +21,10 @@ namespace Notes_Practice.Controllers
         {
 
             ViewBag.FirstName = p.FirstName;
+            ViewBag.LastName = p.LastName;
+            ViewBag.Gender = p.Gender;
+            ViewBag.Department = p.Department;
+            ViewBag.IsAgreed = p.IsAgreed;
             return View();
         }
 

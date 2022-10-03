@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Notes_Practice.CustomValidators;
 
 namespace Notes_Practice.Models
 {
@@ -20,7 +21,7 @@ namespace Notes_Practice.Models
         [Required]
         public string Department { get; set; }
 
-        [RegularExpression("True", ErrorMessage = "Must Agree!")]
-        public bool Policy { get; set; }
+        [CheckBoxRequired]
+        public string IsAgreed { get; set; }
     }
 }
