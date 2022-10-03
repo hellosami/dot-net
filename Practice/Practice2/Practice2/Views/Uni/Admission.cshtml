@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admission</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+        <h1 class="text-primary">Admission Schedule for FALL 2022 - 2023 (Slot-3) Extended</h1>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Online Admission Form</td>
+                    <td>@ViewData["OnlineAdmission"]</td>
+                </tr>
+                <tr>
+                    <td>Time of Written Exam</td>
+                    <td>Undergraduate & Postgraduate - @ViewData["TimeWrittenExam"]</td>
+                </tr>
+                <tr>
+                    <td>Viva Schedule</td>
+                    <td>Undergraduate & Postgraduate - @ViewData["VivaSchedule"]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

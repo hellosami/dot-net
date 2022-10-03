@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PDViewData</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Course Name</td>
+                <td>@ViewData["CourseName"]</td>
+            </tr>
+            <tr>
+                <td>Room No</td>
+                <td>@ViewData["RoomNo"]</td>
+            </tr>
+            <tr>
+                <td>Mentor</td>
+                <td>
+                    <ul>
+                        @foreach (var item in (IEnumerable<String>)ViewData["Mentors"])
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+  
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

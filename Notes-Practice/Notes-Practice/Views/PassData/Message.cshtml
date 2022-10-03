@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Message</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    
+        
+    
+
+
+    <div class="alert alert-success container" role="alert">
+        @TempData["Message"]
+    </div>
+
+</body>
+</html>

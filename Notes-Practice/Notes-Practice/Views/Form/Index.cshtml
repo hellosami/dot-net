@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <form action="" method="post">
+            <table class="table">
+                <tr>
+                    <td>First Name</td>
+                    <td><input class="form-control" type="text" name="FirstName" value="" /></td>
+                    <td>@Html.ValidationMessage("FirstName")</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input class="form-control" type="text" name="FirstName" value="" /></td>
+                    <td>@Html.ValidationMessage("LastName")</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="Gender" value="Male" /> Male
+                        <input type="radio" name="Gender" value="Female" /> Female
+                    </td>
+                    <td>@Html.ValidationMessage("Gender")</td>
+                </tr>
+                <tr>
+                    <td>
+                        Department
+                    </td>
+                    <td>
+                        <select class="form-control" name="Department">
+                            <option value=""></option>
+                            <option value="FST">FST</option>
+                            <option value="EEE">EEE</option>
+                            <option value="BBA">BBA</option>
+                        </select>
+                    </td>
+                    <td>@Html.ValidationMessage("Department")</td>
+                </tr>
+                <tr>
+                    <td>Policy</td>
+                    <td><input type="checkbox" name="IsAgreed"/> I agree ...</td>
+                    <td>@Html.ValidationMessage("IsAgreed")</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input class="btn btn-success" type="submit" value="Login" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

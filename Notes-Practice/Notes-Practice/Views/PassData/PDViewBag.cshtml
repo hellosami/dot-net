@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PDViewBag</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>@ViewBag.StudentName</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>@ViewBag.ID</td>
+            </tr>
+            <tr>
+                <td>BirthYear</td>
+                <td>@ViewBag.BirthYear</td>
+            </tr>
+            <tr>
+                <td>Course List</td>
+                <td>
+                    <ul>
+                        @foreach (var item in ViewBag.CourseList)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

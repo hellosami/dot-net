@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+    <div>
+        @foreach (var fruit in Model)
+        {
+            <ul>
+
+                <li>ID: @fruit.Id</li>
+                <li>Fruit Name: @fruit.Name</li>
+                <li>Price: @fruit.Price</li>
+                <li>Quantity: @fruit.Qty</li>
+                
+            </ul>
+        }
+        </div>
+</body>
+</html>
