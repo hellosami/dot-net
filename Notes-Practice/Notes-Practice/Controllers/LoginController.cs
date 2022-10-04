@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,12 +32,13 @@ namespace Notes_Practice.Controllers
                 string query = "SELECT * FROM LOGIN WHERE USERNAME = '"+L.UserName+"' AND PASSWORD = '"+L.Password+"';";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
+    
 
-                if(dr.Read() )
+                if (dr.Read() )
                 {
                     System.Diagnostics.Debug.WriteLine("LOGGED IN!");
-                   
-
+                    System.Diagnostics.Debug.WriteLine(dr["UserName"].ToString());
+                    ViewBag.UserName = dr["UserName"].ToString();
                 } else
                 {
                     System.Diagnostics.Debug.WriteLine("NOT FOUND!");

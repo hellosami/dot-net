@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table border="1">
+
+
+            @*@foreach (var book in @ViewBag.container)
+        {
+           <li>@book</li>
+        }*@
+
+            @*@foreach (KeyValuePair<String, String> item in @ViewBag.dic)
+        {
+            <li>@item.Key =>  @item.Value</li>
+        }*@
+
+            
+                @foreach (System.Data.DataRow dataRow in @ViewBag.dt.Rows)
+                {
+
+                    @:<tr>
+                        foreach (var item in dataRow.ItemArray)
+                        {
+
+
+                            <td>@item</td>
+                        }
+                    @:</tr>
+                }
+            
+        </table>
+    </div>
+</body>
+</html>
