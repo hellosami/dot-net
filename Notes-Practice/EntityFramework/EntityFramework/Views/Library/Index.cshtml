@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        td {
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div>@ViewBag.Title</div>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="Title" value="" /></td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td><input type="text" name="Author" value="" /></td>
+            </tr>
+            <tr>
+                <td>Publisher</td>
+                <td><input type="text" name="Publisher" value="" /></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="text" name="Price" value="" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="btn btn-success" type="submit" value="Create" /></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

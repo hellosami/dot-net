@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+<body>
+    <div> 
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="type" name="Title" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td><input type="type" name="Author" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Publisher</td>
+                    <td><input type="type" name="Publisher" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="type" name="Price" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="" value="Create" class="btn btn-sm"/></td>
+                </tr>
+            </table>
+        </form>
+
+        <div>
+            
+            <br>
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Price</th>
+                </tr>
+
+                @foreach (var blog in Model)
+                {
+                    <tr>
+                        <td>@blog.Title</td>
+                        <td>@blog.Author</td>
+                        <td>@blog.Publisher</td>
+                        <td>@blog.Price</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

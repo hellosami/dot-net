@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -39,6 +40,48 @@ namespace Notes_Practice.Controllers
 
             //ViewBag.dic = dic;
             return View();
+        }
+
+        public ActionResult Insert()
+        {
+            conn.Open();
+            string query = "INSERT INTO BOOK VALUES('Kamrul Islam', 'Choto');";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int r = cmd.ExecuteNonQuery();
+         
+            
+            if (r == 1)
+            {
+                System.Diagnostics.Debug.WriteLine("INSERTED!");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("SOMETHING WENT WRONG!");
+            }
+
+            conn.Close();
+            return View();
+        }
+
+        public void Update()
+        {
+            conn.Open();
+            string query = "UPDATE BOOK SET NAME = 'SAMI' WHERE ID = 1;";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int r = cmd.ExecuteNonQuery();
+
+
+            if (r == 1)
+            {
+                System.Diagnostics.Debug.WriteLine("UPDATED!");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("SOMETHING WENT WRONG!");
+            }
+
+            conn.Close();
+            
         }
     }
 }

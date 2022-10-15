@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+
+    <style>
+        .alert {
+            background-color: greenyellow;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        @if (TempData["MSG"] != null)
+        {
+            <div class="alert">
+                @TempData["MSG"]
+            </div>
+        }
+
+
+        <h1>Product List</h1>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+
+
+
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Qty</td>
+                    <td><a href="/Shop/AddToCart/@product.Id">Add To Cart</a></td>
+                </tr>
+            }
+
+
+
+        </table>
+
+        <div>
+            <h1>Cart</h1>
+
+
+            @if (ViewBag.Cart != null)
+            {
+
+                <table border="1">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+
+
+                    @{
+                        int counter = 1;
+                    }
+                    @foreach (var item in ViewBag.Cart)
+                    {
+                        <tr>
+                            <td>@counter</td>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>@item.Qty</td>
+
+
+                        </tr>
+
+                        counter++;
+                    }
+
+
+                </table>
+                <br>
+                <button type="button" onclick="location.href='/Shop/Checkout/'">CHECKOUT</button>
+                <button type="button" onclick="location.href='/Shop/ClearCart/'">CLEAR CART</button>
+
+            }
+            else
+            {
+                <span>CART IS EMPTY!</span>
+            }
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>

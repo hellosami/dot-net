@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkout</title>
+</head>
+<body>
+    <div>
+        <h1>CHECKOUT</h1>
+
+
+        @if (ViewBag.Cart != null)
+        {
+
+            <table border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+
+
+                @{
+                    int counter = 1;
+                }
+                @foreach (var item in ViewBag.Cart)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Qty</td>
+
+
+                    </tr>
+
+                    counter++;
+                }
+
+
+            </table>
+            <br>
+            <button type="button" onclick="location.href='/Shop/AddOrder/'">CONFIRM ORDER</button>
+            <button type="button" onclick="location.href='/Shop/Products/'">BUY MORE</button>
+
+        }
+        else
+        {
+            <span>CART IS EMPTY!</span>
+            <button type="button" onclick="location.href='/Shop/Products/'">BUY PRODUCTS</button>
+        }
+
+
+    </div>
+</body>
+</html>
