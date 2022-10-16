@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProduct</title>
+    <style>
+        th {
+            text-align: left;
+        }
+
+        input[type="submit"] {
+            background: #3498db;
+            padding: 8px 16px;
+        }
+
+        .default-btn {
+            background: #3498db;
+            padding: 8px 16px;
+        }
+
+            input[type="submit"]:hover, .default-btn:hover {
+                cursor: pointer;
+            }
+
+        .alert {
+            background-color: greenyellow;
+            padding: 12px;
+        }
+    </style>
+
+</head>
+<body>
+ 
+    <div>
+      
+
+
+
+        <h1>Admin Dashboard</h1>
+        <button class="default-btn" onclick="location.href = '/Admin/Index/';">Dashboard</button>
+        <h1>Edit Product</h1>
+        <form action="/Admin/EditProduct/" method="post">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="Name" value="@(Model == null ? "" :Model.Name)" /></td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <td><input type="text" name="Price" value="@(Model == null ? "" :Model.Price)" /></td>
+                </tr>
+
+                <tr>
+                    <th>Quantity</th>
+                    <td><input type="number" name="Qty" value="@(Model == null ? "" :Model.Qty)" /></td>
+                </tr>
+
+                <tr>
+         
+                    <td><input type="text" name="Id" value="@(Model == null ? "" :Model.Id)" hidden/></td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <td><input type="submit" name="" value="Update" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

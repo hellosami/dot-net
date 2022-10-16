@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkout</title>
+    <style>
+         .confirm-btn {
+            background: #27ae60;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .confirm-btn:hover {
+             background: #2ecc71;
+            cursor: pointer;
+        }
+
+        .buy-more-btn {
+            background: #d35400;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .buy-more-btn:hover {
+             background: #e67e22;
+            cursor: pointer;
+        }
+
+         .buy-product {
+            background: #27ae60;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .buy-product:hover {
+             background: #2ecc71;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>CHECKOUT</h1>
+
+
+        @if (ViewBag.Cart != null)
+        {
+
+            <table border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+
+
+                @{
+                    int counter = 1;
+                }
+                @foreach (var item in ViewBag.Cart)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Qty</td>
+
+
+                    </tr>
+
+                    counter++;
+                }
+
+
+            </table>
+            <br>
+                    <button class="confirm-btn" type="button" onclick="location.href='/Shop/AddOrder/'">CONFIRM ORDER</button>
+                    <button class="buy-more-btn"type="button" onclick="location.href='/Shop/Products_/'">BUY MORE</button>
+
+                    }
+                    else
+                    {
+                        <span>CART IS EMPTY!</span>
+                        <button class="buy-more-btn" type="button" onclick="location.href='/Shop/Products_/'">BUY PRODUCTS</button>
+                    }
+
+
+    </div>
+</body>
+</html>

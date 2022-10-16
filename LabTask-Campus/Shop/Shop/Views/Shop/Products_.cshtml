@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products_</title>
+    <style>
+        .alert {
+            background-color: greenyellow;
+            padding: 12px;
+        }
+
+        .cart-btn {
+            background: #2980b9;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .cart-btn:hover {
+             background: #3498db;
+            cursor: pointer;
+        }
+
+          .checkout-btn {
+            background: #27ae60;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .checkout-btn:hover {
+             background: #2ecc71;
+            cursor: pointer;
+        }
+
+           .clear-btn {
+            background: #7f8c8d;
+            color: #fff;
+            padding: 8px 16px;
+        }
+        .clear-btn:hover {
+             background: #95a5a6;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+
+        @if (TempData["MSG"] != null)
+        {
+            <div class="alert">
+                @TempData["MSG"]
+            </div>
+        }
+
+        <h1>Product List</h1>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+
+
+
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Qty</td>
+                    <td><button class="cart-btn" type="button" onclick="location.href = '/Shop/AddToCart/@product.Id';">🛒</button></td>
+    
+                </tr>
+            }
+
+
+
+        </table>
+
+        <div>
+            <h1>Cart</h1>
+
+
+            @if (ViewBag.Cart != null)
+            {
+
+                <table border="1">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+
+
+                    @{
+                        int counter = 1;
+                    }
+                    @foreach (var item in ViewBag.Cart)
+                    {
+                        <tr>
+                            <td>@counter</td>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>@item.Qty</td>
+
+
+                        </tr>
+
+                        counter++;
+                    }
+
+
+                </table>
+                <br>
+                        <button class="checkout-btn" type="button" onclick="location.href='/Shop/Checkout/'">CHECKOUT ➦</button>
+                        <button class="clear-btn" type="button" onclick="location.href='/Shop/ClearCart/'">CLEAR CART 🗑</button>
+
+                        }
+                        else
+                        {
+                            <span>CART IS EMPTY!</span>
+                        }
+
+
+        </div>
+    </div>
+</body>
+</html>

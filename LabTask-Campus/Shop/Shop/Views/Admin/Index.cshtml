@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <style>
+          .alert {
+            background-color: greenyellow;
+            padding: 12px;
+        }
+        .btn {
+    background: #7f8c8d;
+    color: #fff;
+    padding: 8px 16px;
+    }
+    .btn:hover {
+    background: #95a5a6;
+    cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+   
+
+    <div> 
+     
+        @if (TempData["MSG_ADMIN"] != null)
+        {
+            <div class="alert">
+                @TempData["MSG_ADMIN"]
+            </div>
+        }
+        <h1>Admin Dashboard</h1>
+
+
+        <h1>Product List</h1>
+        <button class="btn" type="button" onclick="location.href='/Admin/AddProduct'">Add</button>
+        <br />
+        <br />
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+
+
+
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Qty</td>
+                    <td><a href="/Admin/EditProduct/@product.Id">Edit</a></td>
+                    <td><a href="/Admin/DeleteProduct/@product.Id">Delete</a></td>
+
+                </tr>
+            }
+
+
+
+        </table>
+        
+    </div>
+</body>
+</html>
